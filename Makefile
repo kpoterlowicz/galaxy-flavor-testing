@@ -62,9 +62,17 @@ test_ftp:
 test_bioblend:
 	# Run bioblend nosetests with the same UID and GID as the galaxy user inside if Docker
 	# this will guarantee that exchanged files bewteen bioblend and Docker are read & writable from both sides
+<<<<<<< HEAD
 
 	sudo -E su $(GALAXY_TRAVIS_USER) -c "export BIOBLEND_GALAXY_API_KEY=admin && export BIOBLEND_GALAXY_URL=http://localhost:8080 && export BIOBLEND_TEST_JOB_TIMEOUT=240 && export PATH=$(GALAXY_HOME)/.local/bin/:$(PATH) && cd $(GALAXY_HOME)/bioblend-master && tox -e $(TOX_ENV) -- -k 'not download_dataset and not download_history'"
 
+=======
+
+	sudo -E su $(GALAXY_TRAVIS_USER) -c "export BIOBLEND_GALAXY_API_KEY=admin && export BIOBLEND_GALAXY_URL=http://localhost:8080 && export BIOBLEND_TEST_JOB_TIMEOUT=240 && export PATH=$(GALAXY_HOME)/.local/bin/:$(PATH) && cd $(GALAXY_HOME)/bioblend-master && tox -e $(TOX_ENV) -- -k 'not download_dataset and not download_history'"
+
+>>>>>>> parent of b72370c... Merge pull request #14 from abretaud/patch-2
+
+>>>>>>> d484bffeb81d93344ec81a67c11be31cb4c95666
 test_docker_in_docker:
 	# Test Docker in Docker, used by Interactive Environments; This needs to be at the end as Docker takes some time to start.
 	docker exec -i -t galaxy_test_container docker info

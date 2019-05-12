@@ -13,7 +13,6 @@ all: docker_install docker_build docker_run sleep install test_api test_ftp test
 	@echo "Running all installations and testing artefacts for your Galaxy flavor!"
 
 docker_install:
-	sudo apt-get update -qq
 	sudo apt-get install docker-ce --no-install-recommends -y -o Dpkg::Options::="--force-confmiss" -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew"
 	docker --version
 	docker info
